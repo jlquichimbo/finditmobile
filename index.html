@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=3.1.2'></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjSP5qZdefYhf1lI6iuBh0gT5BUgYQUWw&amp;sensor=true"></script>
+        <script type="text/javascript" src='https://www.google.com/jsapi'></script>
+        <script>
+            $(document).ready(function () {
+                //    $('#content').load('http://loxatec.com/findit/&callback=?');
+                jQuery.support.cors = true;
+                $.ajax({
+                    url: 'http://127.0.0.1/findit/',
+                    type: 'GET',
+                    dataType: 'html',
+                    jsonp: 'callback',
+                    success: function (html) {
+//                        $('#content').load('http://127.0.0.1/findit/');
+//                        console.log(html);
+                        $('#content').html(html);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('error');
+                        console.log(xhr);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            });
+        </script>
+        <title>FindIt Mobile</title>
+    </head>
+    <body>
+        <div id="content">
+
+        </div>
+
+    </body>
+</html>
